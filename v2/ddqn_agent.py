@@ -136,9 +136,9 @@ class DDQNAgent:
         uniques.sort() 
         
         for elem in uniques:
-            print elem
-            print mem_str.count(elem)
-            print "\n"
+            print (elem)
+            print (mem_str.count(elem))
+            print ("\n")
         
     def __replay(self, batch_size):
         minibatch = random.sample(self.memory, self.batch_size)
@@ -209,7 +209,7 @@ class DDQNAgent:
     def test(self, epsilon = None):
         if epsilon is not None:
             self.epsilon = epsilon
-        
+
         self.env.reset()
         self.portfolio.reset()
         state = self.env.getStates() + self.portfolio.getStates()
@@ -218,16 +218,16 @@ class DDQNAgent:
         while (True):
             action = self.__act(state)
             action = self.portfolio.apply_action(self.env.getCurrentPrice(), action)
-            print action
+            print (action)
             
             isDone, next_state = self.env.step()
             next_state = next_state + self.portfolio.getStates()
             state = next_state
             
             if isDone:
-            	break
+                break
 
-        print self.portfolio.getReturnsPercent(self.env.getCurrentPrice())
+        print("test : " + self.portfolio.getReturnsPercent(self.env.getCurrentPrice()))
         
    
     def plot_cum_returns(self):

@@ -22,12 +22,12 @@ print bba.act([0, 1])
 '''
 class BollingerBandAgent:
 
-    def act(self, state):
-    	cross_upper_band, cross_lower_band = state 
-    	if cross_upper_band:
-    		return Action.SELL
-    	if cross_lower_band:
-    		return Action.BUY
-    	return Action.HOLD
+	def act(self, state):
+		cross_upper_band, cross_lower_band = state 
+		if cross_upper_band:
+			return Action.SELL
+		if cross_lower_band:
+			return Action.BUY
+		return Action.HOLD
 
 
